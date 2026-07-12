@@ -1,0 +1,102 @@
+{
+  "product": "Kaelor Coach",
+  "statuses": ["pending", "inprogress", "done", "blocked"],
+  "features": [
+    {
+      "id": "mvp-001",
+      "title": "Inicializar monorepo y toolchains",
+      "module": "platform",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-002",
+      "title": "Crear API base para Cloud Run",
+      "module": "backend",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-003",
+      "title": "Configurar PostgreSQL Neon y Drizzle",
+      "module": "backend",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-004",
+      "title": "Crear aplicación Flutter Android",
+      "module": "frontend",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-005",
+      "title": "Spike Health Connect",
+      "module": "integration",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-006",
+      "title": "Spike miniapp Amazfit Active 2",
+      "module": "watch",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-007",
+      "title": "Sincronizar Zepp Side Service con API",
+      "module": "integration",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-008",
+      "title": "Implementar perfil clínico y de rendimiento",
+      "module": "backend+frontend",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-009",
+      "title": "Registrar entrenamientos de fuerza",
+      "module": "backend+frontend+watch",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-010",
+      "title": "Registrar sesiones de taekwondo",
+      "module": "backend+frontend+watch",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-011",
+      "title": "Registrar mediciones Relaxmedic",
+      "module": "backend+frontend",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-012",
+      "title": "Crear AIModelGateway y Codex OAuth Adapter",
+      "module": "ai",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-013",
+      "title": "Crear Safety Engine",
+      "module": "health+ai",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-014",
+      "title": "Calcular recovery snapshot",
+      "module": "health",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-015",
+      "title": "Generar recomendación diaria",
+      "module": "coach",
+      "status": "pending"
+    },
+    {
+      "id": "mvp-016",
+      "title": "Analizar comidas por fotografía",
+      "module": "nutrition+ai",
+      "status": "pending"
+    }
+  ]
+}
