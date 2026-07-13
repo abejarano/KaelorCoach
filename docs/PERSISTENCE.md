@@ -1,100 +1,55 @@
-# Persistence — Kaelor Coach
+# Persistencia — Kaelor Coach
 
-## 1. Base principal
+## 1. Fuente de verdad
 
-PostgreSQL en Neon es la fuente de verdad del MVP.
-
-Drizzle ORM será utilizado para schema, queries y migraciones.
+PostgreSQL Neon es la fuente de verdad del MVP. Drizzle gestiona schema, queries y migraciones.
 
 ## 2. Reglas
 
-- Tablas y columnas específicas.
-- Campos `NOT NULL` por defecto.
-- `NULL` requiere una razón de negocio documentada.
-- No usar columnas genéricas `metadata`, `data`, `extra` o `config` en dominio.
-- JSONB solo para payload externo bruto, auditoría técnica o contratos de proveedor.
-- Las fotos nunca se almacenan en PostgreSQL.
-- Timestamps en UTC.
-- El timezone del usuario se aplica en presentación y reglas temporales.
-- Relaciones con foreign keys reales.
-- Ownership verificable mediante `user_id`.
-- Sin hard delete de datos clínicos o históricos en el MVP; usar estado explícito o proceso de eliminación completo por usuario.
+- Tablas específicas por módulo.
+- No tabla universal de documentos.
+- No generic repository.
+- UUID para ids externos.
+- UTC para timestamps.
+- Ownership por `user_id` en todos los datos privados.
+- Foreign keys cuando exista relación real.
+- Índices definidos por queries reales.
+- Fotos y archivos en Google Cloud Storage; PostgreSQL conserva metadata exacta y object key.
+- Secretos nunca en PostgreSQL.
 
-## 3. Áreas de datos
+## 3. Datos de salud
 
-```text
-users
-user_goals
-health_conditions
-medications
-supplements
-physical_limitations
-laboratory_observations
-device_connections
-raw_integration_records
-health_observations
-sleep_sessions
-sleep_stages
-workout_sessions
-strength_exercises
-strength_sets
-taekwondo_sessions
-body_measurements
-meal_entries
-meal_analysis
-recovery_snapshots
-training_plans
-training_recommendations
-coach_context_snapshots
-ai_executions
-consents
-audit_events
-```
+Cada registro normalizado conserva:
 
-Crear tablas solo cuando la feature correspondiente se implemente.
-
-## 4. Observaciones
-
-Las observaciones son append-only.
-
-Cada observación conserva:
-
-- user id;
+- usuario;
 - tipo exacto;
-- valor;
-- unidad;
-- fecha de medición;
-- fecha de recepción;
+- valor y unidad cuando corresponde;
+- inicio/fin o timestamp;
 - origen;
-- identificador de origen;
-- nivel de confianza;
-- confirmación del usuario cuando aplique.
+- id externo;
+- fecha de recepción;
+- calidad/confianza cuando el dato es estimado;
+- referencia al payload de integración cuando sea necesaria para auditoría.
 
-## 5. Payload bruto
+Los registros importados no se sobrescriben silenciosamente. Deduplicación usa origen + id externo o clave idempotente definida.
 
-`raw_integration_records` puede usar JSONB porque representa contratos externos.
+## 4. Migraciones
 
-No exponerlo como modelo de dominio ni respuesta normal del API.
+- `DATABASE_URL`: pooled runtime.
+- `DATABASE_DIRECT_URL`: migraciones.
+- Migraciones fuera del startup de Cloud Run.
+- Toda modificación de schema exige migration versionada.
 
-## 6. Idempotencia
+## 5. Modelos
 
-Cada integración debe definir una clave concreta. Ejemplo:
+Campos obligatorios por defecto. Un campo nullable solo existe cuando el estado nulo representa una condición funcional concreta y documentada.
 
-```text
-source + source_record_id + record_type
-```
+Prohibido:
 
-Si la fuente no entrega id:
+- `metadata` genérico en dominio;
+- `extra`;
+- `data` ambiguo;
+- `OTHER` sin flujo;
+- JSONB como sustituto de modelado.
 
-```text
-source + user_id + record_type + measured_at + deterministic_hash
-```
-
-No agregar reintentos silenciosos que oculten duplicados.
-
-## 7. Conexiones
-
-- `DATABASE_URL`: pooler para Cloud Run.
-- `DATABASE_DIRECT_URL`: migraciones y tareas administrativas.
-- SSL obligatorio.
-- No ejecutar migraciones en cada startup.
+JSONB se admite solo para payload externo bruto o snapshot de auditoría definido.

@@ -1,22 +1,31 @@
 # Kaelor Coach
 
-Kaelor Coach es un entrenador personal asistido por IA que combina datos del Amazfit Active 2, Health Connect, entrenamientos, composición corporal, alimentación y contexto clínico para recomendar qué entrenar, cuándo hacerlo y con qué intensidad.
+Kaelor Coach será un agente entrenador personal que observa el estado real del usuario y transforma datos de recuperación, entrenamiento, alimentación, composición corporal y contexto de salud en decisiones diarias concretas.
 
-## Documentación principal
+## Regla de inicio
+
+El desarrollo comienza por `mvp-001`: una miniapp mínima instalada en Amazfit Active 2 que valida reloj → app-side service → HTTPS. No se construye primero el backend completo ni la IA.
+
+## Documentación
 
 - `docs/PRODUCT.md`
 - `docs/ARCHITECTURE.md`
 - `docs/PERSISTENCE.md`
 - `docs/FRONTEND_GUIDE.md`
-- `docs/conventions.md`
-- `docs/verification.md`
-- `CODEX.md`
-- `AGENTS.md`
+- `feature_list.json`
+- `issues/README.md`
 
-## Arnés Codex
+## Harness
 
-```text
-leader -> implementer -> reviewer -> leader
+```bash
+chmod +x init.sh verify.sh
+./init.sh
 ```
 
-El estado del trabajo vive en `feature_list.json` y `progress/`.
+## Crear issues GitHub y enlazar feature_list
+
+```bash
+gh auth status
+node scripts/create-github-issues.mjs abejarano/KaelorCoach
+node scripts/check-feature-issues.mjs
+```

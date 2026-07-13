@@ -1,50 +1,54 @@
 # CODEX.md — Instrucciones raíz para Codex CLI
 
-En Kaelor Coach, Codex actúa por defecto como **leader**.
-
-El leader orquesta. No implementa código runtime salvo instrucción explícita del usuario.
+Codex actúa por defecto como **leader**. El leader administra una sola feature y no implementa runtime salvo orden explícita.
 
 ## 1. Protocolo inicial
 
-1. Lee `AGENTS.md`.
-2. Lee `feature_list.json`.
-3. Lee `progress/current.md`.
-4. Lee `progress/history.md`.
-5. Lee `docs/PRODUCT.md`.
-6. Lee documentación según superficie:
-   - backend: `docs/ARCHITECTURE.md`, `docs/PERSISTENCE.md`, `docs/conventions.md`;
-   - Flutter/reloj: `docs/FRONTEND_GUIDE.md`, `.agents/skills/frontend-flutter/SKILL.md`;
-   - salud/IA: `.agents/skills/health-safety-reviewer/SKILL.md`;
-   - verificación: `docs/verification.md`.
-7. Ejecuta `./init.sh`.
-8. Aplica `.codex/agents/leader.md`.
+1. Leer `AGENTS.md`.
+2. Leer `feature_list.json`.
+3. Verificar que exista como máximo una feature `inprogress`.
+4. Seleccionar la feature activa o la primera `pending` cuyo `dependsOn` esté terminado.
+5. Leer el GitHub issue indicado por `issue.number`.
+6. Si `issue.created=true`, confirmar que `issue.number` y `issue.url` coinciden con `feature_list.json`.
+7. Leer `progress/current.md` y `progress/history.md`.
+8. Leer documentación según la superficie.
+9. Ejecutar `./init.sh`.
+10. Crear `progress/plan_<id>_<slug>.md` antes de delegar.
 
-## 2. Reglas del leader
+## 2. GitHub issue y feature_list
 
-- Trabaja una sola feature por ciclo.
-- Si existe exactamente una `inprogress`, continúa esa.
-- Si no existe, selecciona la primera `pending`.
-- Si hay más de una `inprogress`, bloquea y documenta.
-- No implementa una feature ausente en `feature_list.json`.
-- Crea `progress/plan_<id>_<slug>.md`.
-- Actualiza `progress/current.md`.
-- Delega implementación solo con plan terminado.
-- Delega review solo con `progress/impl_<id>_<slug>.md`.
-- Cierra solo con `APPROVED`.
-- Commit, push y PR solo cuando el usuario lo ordene.
+- `feature_list.json` define orden, estado y dependencias.
+- El issue define alcance, criterios de aceptación y evidencia.
+- No cambiar el alcance del issue durante implementación.
+- Un cambio de alcance exige actualizar issue GitHub y feature list antes de continuar.
 
-## 3. Git
+## 3. Reglas del leader
 
-- Feature nueva: partir de `main` actualizado.
-- Rama: `codex/<id>-<slug>`.
-- Feature en progreso: continuar su rama.
-- Implementer y reviewer no cambian de rama.
+- Una sola feature por ciclo.
+- Si hay una `inprogress`, continuarla.
+- Si hay más de una, bloquear.
+- Si no hay `inprogress`, tomar la primera `pending` con dependencias `done`.
+- Para el inicio del proyecto, `mvp-001` debe ejecutarse antes de plataforma, API, Flutter o base de datos.
+- Crear rama `codex/<id>-<slug>` desde `main` actualizado.
+- Marcar `inprogress` al iniciar.
+- Delegar al implementer con plan terminado.
+- Delegar review solo después de `progress/impl_...`.
+- Cerrar únicamente con `APPROVED`.
+- Commit, push y PR solo por orden explícita del usuario.
 
-## 4. Roles
+## 4. Arquitectura de implementación
 
-- `.codex/agents/leader.md`
-- `.codex/agents/implementer.md`
-- `.codex/agents/reviewer.md`
+- NestJS pragmático, no DDD fuerte.
+- No crear capas ceremoniales.
+- Controller -> Service -> Repository.
+- DTO validado una vez por ValidationPipe.
+- Services no repiten `typeof`, `undefined`, `isNaN` sobre DTOs válidos.
+- Repositories concretos, nunca `GenericRepository<T>`.
+- Campos exactos y requeridos por defecto.
+- No agregar `notes`, `metadata`, `extra`, `config`, `OTHER` ni campos opcionales sin requisito.
+- No CQRS, commands, handlers, aggregates, value objects o domain events sin requisito explícito.
+- No fallback silencioso.
+- Error real debe permanecer visible.
 
 ## 5. Artefactos
 
@@ -56,43 +60,50 @@ progress/current.md
 progress/history.md
 ```
 
-## 6. Reglas de implementación
-
-- Una feature exacta.
-- Sin ampliar alcance.
-- Sin refactors oportunistas.
-- Sin dependencias no aprobadas.
-- Sin fallback silencioso.
-- Sin campos opcionales especulativos.
-- Sin validación duplicada después del boundary.
-- Sin infraestructura preventiva.
-- Modelos específicos y cerrados.
-- Verificación real documentada.
-
-## 7. Review
+## 6. Review obligatorio
 
 Rechazar si:
 
 - `./init.sh` falla;
-- falta plan o informe de implementación;
-- la feature no está `inprogress`;
+- no se leyó el issue;
+- falta plan o informe;
 - se mezclaron features;
-- hay cambios fuera del plan;
-- se viola arquitectura o persistencia;
-- se exponen secretos o datos sensibles;
-- faltan pruebas/verificación;
-- se agregan fallbacks silenciosos;
+- hay cambios fuera del alcance;
+- se introdujo DDD fuerte o abstracción especulativa;
+- se repite validación de tipos después del boundary;
 - se agregan opcionales injustificados;
-- se permite a la IA saltar Safety Engine;
-- UI ignora `docs/FRONTEND_GUIDE.md`.
+- se agregan fallbacks silenciosos;
+- se inventan datos de salud;
+- IA puede saltar Safety Engine;
+- faltan verificaciones y evidencia.
 
-## 8. Cierre
+## 7. Cierre
 
 Solo leader:
 
-1. Confirma `APPROVED`.
-2. Ejecuta `./init.sh` y verificación correspondiente.
-3. Marca feature `done`.
-4. Actualiza `progress/history.md`.
-5. Limpia `progress/current.md`.
-6. Hace commit/PR únicamente si fue solicitado.
+1. Confirmar `APPROVED`.
+2. Ejecutar verificación indicada en el issue.
+3. Marcar feature `done`.
+4. Actualizar `progress/history.md` y `progress/current.md`.
+5. No crear commit o PR sin orden explícita.
+
+## 8. Estrategia para el harness
+
+```text
+Leader
+└── gpt-5.6-terra
+
+Implementer
+└── gpt-5.6-terra
+
+Reviewer normal
+└── gpt-5.6-terra
+
+Arquitectura crítica / integraciones difíciles
+└── gpt-5.6-sol
+
+Cambios mecánicos, documentación y tareas pequeñas
+└── gpt-5.6-luna
+```
+
+No reasignar estos modelos salvo orden explícita del usuario.

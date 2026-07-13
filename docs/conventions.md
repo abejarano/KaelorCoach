@@ -1,79 +1,49 @@
-# Conventions — Kaelor Coach
+# Convenciones de desarrollo
 
-## 1. Filosofía
+## Backend NestJS
 
-- Solución más simple que cumpla completamente la feature actual.
-- Sin abstracciones especulativas.
-- Sin campos especulativos.
-- Sin validaciones repetidas.
-- Sin fallbacks silenciosos.
-- Sin refactors oportunistas.
-- Sin dependencias nuevas sin justificación.
+- Módulos por capacidad de negocio.
+- Un controller, service y repository concretos cuando la feature los necesita.
+- No DDD fuerte.
+- No generic repository.
+- No CQRS.
+- No interfaces para una sola implementación salvo límite externo real.
+- `ValidationPipe` global en HTTP.
+- DTOs exactos; campos requeridos por defecto.
+- El service confía en DTOs validados.
+- El service valida negocio, ownership y transiciones.
+- El repository contiene Drizzle y no reglas de entrenamiento/salud.
+- No capturar excepciones para devolver defaults.
 
-## 2. TypeScript
+## TypeScript
 
 - `strict: true`.
 - No `any`.
-- No `as unknown as` salvo integración externa documentada.
-- Tipos de dominio concretos.
-- Enums cerrados y específicos.
-- Campos obligatorios por defecto.
-- Nombres que expresen unidad: `weightKg`, `durationSeconds`, `measuredAt`.
+- Preferir enums/unions cerrados cuando el conjunto está definido.
+- No usar `Record<string, unknown>` dentro de modelos de negocio.
+- Payload bruto externo puede conservarse en integración/auditoría.
+- Nombres completos y legibles.
 
-## 3. Validación
+## Flutter
 
-- HTTP payload: una vez mediante schema middleware.
-- Dominio: reglas de negocio.
-- Persistencia: constraints e integridad.
-- No repetir `typeof`, `undefined`, `NaN` en cada capa después del middleware.
+- Screens orquestan.
+- Widgets encapsulan bloques visuales.
+- Services/repositories móviles encapsulan API y plataforma.
+- No lógica extensa de negocio en widgets.
+- Estados explícitos: loading, empty, error, success.
+- No duplicar modelos de respuesta manualmente si existe generación aprobada.
 
-## 4. Errores
+## Errores
 
 - Fail fast.
-- Error explícito.
-- Dato faltante explícito.
-- Nunca sustituir datos fisiológicos por defaults.
-- No capturar excepciones para devolver valores inventados.
+- Sin fallback silencioso.
+- Sin valores fisiológicos por defecto.
+- Un dato faltante se representa explícitamente.
+- Logs estructurados sin secretos ni contenido clínico completo.
 
-## 5. Modelos
+## Alcance
 
-No permitido por defecto:
-
-```text
-field?: type
-field: type | null | undefined
-metadata: Record<string, unknown>
-data: any
-extra: object
-config: object
-type: OTHER
-```
-
-Una excepción debe venir desde un requerimiento funcional o contrato externo.
-
-## 6. Backend
-
-- Controllers delgados.
-- Application services concretos.
-- Repositorios específicos.
-- No `BaseService<T>`.
-- No `GenericRepository<T>`.
-- No DI container adicional sin ADR.
-
-## 7. Frontend
-
-- Screens como composición.
-- Widgets con responsabilidad única.
-- No fetch disperso.
-- No lógica de dominio en UI.
-- Reutilizar design system.
-- Cubrir loading, empty, error y success.
-
-## 8. IA
-
-- Structured Outputs obligatorios.
-- Schema específico por workload.
-- Context snapshot versionado.
-- Guardar modelo, provider, duración y resultado validado.
-- No guardar chain-of-thought.
-- No permitir a IA saltar reglas del Safety Engine.
+- Modificar solo archivos relacionados con el issue.
+- No refactor oportunista.
+- No instalar dependencias sin justificar en el plan.
+- No crear infraestructura no solicitada.

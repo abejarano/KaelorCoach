@@ -1,102 +1,538 @@
 {
+  "version": 2,
   "product": "Kaelor Coach",
-  "statuses": ["pending", "inprogress", "done", "blocked"],
+  "repository": "abejarano/KaelorCoach",
+  "sourceOfTruth": {
+    "product": "docs/PRODUCT.md",
+    "architecture": "docs/ARCHITECTURE.md",
+    "execution": "GitHub issue"
+  },
+  "statuses": [
+    "pending",
+    "inprogress",
+    "done",
+    "blocked"
+  ],
   "features": [
     {
       "id": "mvp-001",
-      "title": "Inicializar monorepo y toolchains",
-      "module": "platform",
-      "status": "pending"
+      "title": "Spike mínimo Amazfit Active 2: reloj → app-side → HTTPS",
+      "module": "watch",
+      "phase": "0-discovery",
+      "priority": 1,
+      "status": "pending",
+      "dependsOn": [],
+      "issue": {
+        "created": true,
+        "number": 1,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/1"
+      }
     },
     {
       "id": "mvp-002",
-      "title": "Crear API base para Cloud Run",
-      "module": "backend",
-      "status": "pending"
+      "title": "Auditar APIs y señales disponibles en Amazfit Active 2",
+      "module": "watch",
+      "phase": "0-discovery",
+      "priority": 2,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-001"
+      ],
+      "issue": {
+        "created": true,
+        "number": 2,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/2"
+      }
     },
     {
       "id": "mvp-003",
-      "title": "Configurar PostgreSQL Neon y Drizzle",
-      "module": "backend",
-      "status": "pending"
+      "title": "Validar persistencia local y reenvío diferido en la miniapp",
+      "module": "watch",
+      "phase": "0-discovery",
+      "priority": 3,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-001"
+      ],
+      "issue": {
+        "created": true,
+        "number": 3,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/3"
+      }
     },
     {
       "id": "mvp-004",
-      "title": "Crear aplicación Flutter Android",
-      "module": "frontend",
-      "status": "pending"
+      "title": "Spike Health Connect: auditar datos publicados por Zepp",
+      "module": "integration",
+      "phase": "0-discovery",
+      "priority": 4,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-001"
+      ],
+      "issue": {
+        "created": true,
+        "number": 4,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/4"
+      }
     },
     {
       "id": "mvp-005",
-      "title": "Spike Health Connect",
-      "module": "integration",
-      "status": "pending"
+      "title": "Consolidar matriz de capacidades y decisión técnica del MVP",
+      "module": "architecture",
+      "phase": "0-discovery",
+      "priority": 5,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-002",
+        "mvp-003",
+        "mvp-004"
+      ],
+      "issue": {
+        "created": true,
+        "number": 5,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/5"
+      }
     },
     {
       "id": "mvp-006",
-      "title": "Spike miniapp Amazfit Active 2",
-      "module": "watch",
-      "status": "pending"
+      "title": "Inicializar monorepo y toolchains del producto",
+      "module": "platform",
+      "phase": "1-foundation",
+      "priority": 6,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-005"
+      ],
+      "issue": {
+        "created": true,
+        "number": 6,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/6"
+      }
     },
     {
       "id": "mvp-007",
-      "title": "Sincronizar Zepp Side Service con API",
-      "module": "integration",
-      "status": "pending"
+      "title": "Crear API NestJS base preparada para Cloud Run",
+      "module": "backend",
+      "phase": "1-foundation",
+      "priority": 7,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-006"
+      ],
+      "issue": {
+        "created": true,
+        "number": 7,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/7"
+      }
     },
     {
       "id": "mvp-008",
-      "title": "Implementar perfil clínico y de rendimiento",
-      "module": "backend+frontend",
-      "status": "pending"
+      "title": "Configurar PostgreSQL Neon y Drizzle",
+      "module": "backend",
+      "phase": "1-foundation",
+      "priority": 8,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-007"
+      ],
+      "issue": {
+        "created": true,
+        "number": 8,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/8"
+      }
     },
     {
       "id": "mvp-009",
-      "title": "Registrar entrenamientos de fuerza",
-      "module": "backend+frontend+watch",
-      "status": "pending"
+      "title": "Implementar autenticación Android con Firebase Auth",
+      "module": "auth",
+      "phase": "1-foundation",
+      "priority": 9,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-007",
+        "mvp-006"
+      ],
+      "issue": {
+        "created": true,
+        "number": 9,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/9"
+      }
     },
     {
       "id": "mvp-010",
-      "title": "Registrar sesiones de taekwondo",
-      "module": "backend+frontend+watch",
-      "status": "pending"
+      "title": "Crear shell Flutter, navegación y design system base",
+      "module": "frontend",
+      "phase": "1-foundation",
+      "priority": 10,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-006"
+      ],
+      "issue": {
+        "created": true,
+        "number": 10,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/10"
+      }
     },
     {
       "id": "mvp-011",
-      "title": "Registrar mediciones Relaxmedic",
-      "module": "backend+frontend",
-      "status": "pending"
+      "title": "Migrar el spike Zepp a la aplicación watch productiva",
+      "module": "watch",
+      "phase": "1-foundation",
+      "priority": 11,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-005",
+        "mvp-006"
+      ],
+      "issue": {
+        "created": true,
+        "number": 11,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/11"
+      }
     },
     {
       "id": "mvp-012",
-      "title": "Crear AIModelGateway y Codex OAuth Adapter",
-      "module": "ai",
-      "status": "pending"
+      "title": "Implementar integración productiva con Health Connect",
+      "module": "integration",
+      "phase": "2-capture",
+      "priority": 12,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-004",
+        "mvp-007",
+        "mvp-009",
+        "mvp-010"
+      ],
+      "issue": {
+        "created": true,
+        "number": 12,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/12"
+      }
     },
     {
       "id": "mvp-013",
-      "title": "Crear Safety Engine",
-      "module": "health+ai",
-      "status": "pending"
+      "title": "Implementar perfil clínico y de rendimiento en backend",
+      "module": "health-profile",
+      "phase": "2-capture",
+      "priority": 13,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-008",
+        "mvp-009"
+      ],
+      "issue": {
+        "created": true,
+        "number": 13,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/13"
+      }
     },
     {
       "id": "mvp-014",
-      "title": "Calcular recovery snapshot",
-      "module": "health",
-      "status": "pending"
+      "title": "Crear onboarding clínico y deportivo en Flutter",
+      "module": "frontend",
+      "phase": "2-capture",
+      "priority": 14,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-010",
+        "mvp-013"
+      ],
+      "issue": {
+        "created": true,
+        "number": 14,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/14"
+      }
     },
     {
       "id": "mvp-015",
-      "title": "Generar recomendación diaria",
-      "module": "coach",
-      "status": "pending"
+      "title": "Registrar mediciones corporales Relaxmedic manualmente",
+      "module": "body-measurements",
+      "phase": "2-capture",
+      "priority": 15,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-008",
+        "mvp-009",
+        "mvp-010"
+      ],
+      "issue": {
+        "created": true,
+        "number": 15,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/15"
+      }
     },
     {
       "id": "mvp-016",
-      "title": "Analizar comidas por fotografía",
-      "module": "nutrition+ai",
-      "status": "pending"
+      "title": "Modelar y exponer sesiones de entrenamiento",
+      "module": "workouts",
+      "phase": "2-capture",
+      "priority": 16,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-008",
+        "mvp-009"
+      ],
+      "issue": {
+        "created": true,
+        "number": 16,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/16"
+      }
+    },
+    {
+      "id": "mvp-017",
+      "title": "Registrar entrenamiento de fuerza en reloj y móvil",
+      "module": "workouts",
+      "phase": "2-capture",
+      "priority": 17,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-011",
+        "mvp-016",
+        "mvp-010"
+      ],
+      "issue": {
+        "created": true,
+        "number": 17,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/17"
+      }
+    },
+    {
+      "id": "mvp-018",
+      "title": "Registrar sesión de taekwondo en reloj y móvil",
+      "module": "workouts",
+      "phase": "2-capture",
+      "priority": 18,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-011",
+        "mvp-016",
+        "mvp-010"
+      ],
+      "issue": {
+        "created": true,
+        "number": 18,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/18"
+      }
+    },
+    {
+      "id": "mvp-019",
+      "title": "Fusionar entrenamiento propio con datos de Health Connect",
+      "module": "integration",
+      "phase": "2-capture",
+      "priority": 19,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-012",
+        "mvp-016",
+        "mvp-017",
+        "mvp-018"
+      ],
+      "issue": {
+        "created": true,
+        "number": 19,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/19"
+      }
+    },
+    {
+      "id": "mvp-020",
+      "title": "Crear AIModelGateway y adaptador Codex OAuth",
+      "module": "ai",
+      "phase": "3-ai",
+      "priority": 20,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-007",
+        "mvp-009"
+      ],
+      "issue": {
+        "created": true,
+        "number": 20,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/20"
+      }
+    },
+    {
+      "id": "mvp-021",
+      "title": "Analizar comidas por fotografía con confirmación",
+      "module": "nutrition",
+      "phase": "3-ai",
+      "priority": 21,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-010",
+        "mvp-020",
+        "mvp-008"
+      ],
+      "issue": {
+        "created": true,
+        "number": 21,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/21"
+      }
+    },
+    {
+      "id": "mvp-022",
+      "title": "Importar medición Relaxmedic desde captura de pantalla",
+      "module": "body-measurements",
+      "phase": "3-ai",
+      "priority": 22,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-015",
+        "mvp-020"
+      ],
+      "issue": {
+        "created": true,
+        "number": 22,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/22"
+      }
+    },
+    {
+      "id": "mvp-023",
+      "title": "Implementar check-in diario de seguridad y recuperación percibida",
+      "module": "recovery",
+      "phase": "4-coach",
+      "priority": 23,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-013",
+        "mvp-010"
+      ],
+      "issue": {
+        "created": true,
+        "number": 23,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/23"
+      }
+    },
+    {
+      "id": "mvp-024",
+      "title": "Calcular línea base personal y Recovery Snapshot",
+      "module": "recovery",
+      "phase": "4-coach",
+      "priority": 24,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-012",
+        "mvp-015",
+        "mvp-019",
+        "mvp-023"
+      ],
+      "issue": {
+        "created": true,
+        "number": 24,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/24"
+      }
+    },
+    {
+      "id": "mvp-025",
+      "title": "Implementar Safety Engine determinístico",
+      "module": "safety",
+      "phase": "4-coach",
+      "priority": 25,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-013",
+        "mvp-023",
+        "mvp-024"
+      ],
+      "issue": {
+        "created": true,
+        "number": 25,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/25"
+      }
+    },
+    {
+      "id": "mvp-026",
+      "title": "Definir objetivos y plan semanal de entrenamiento",
+      "module": "planning",
+      "phase": "4-coach",
+      "priority": 26,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-013",
+        "mvp-016",
+        "mvp-010"
+      ],
+      "issue": {
+        "created": true,
+        "number": 26,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/26"
+      }
+    },
+    {
+      "id": "mvp-027",
+      "title": "Generar recomendación diaria personalizada",
+      "module": "coach",
+      "phase": "4-coach",
+      "priority": 27,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-020",
+        "mvp-024",
+        "mvp-025",
+        "mvp-026"
+      ],
+      "issue": {
+        "created": true,
+        "number": 27,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/27"
+      }
+    },
+    {
+      "id": "mvp-028",
+      "title": "Implementar conversación con el entrenador y memoria estructurada",
+      "module": "coach",
+      "phase": "4-coach",
+      "priority": 28,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-020",
+        "mvp-027"
+      ],
+      "issue": {
+        "created": true,
+        "number": 28,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/28"
+      }
+    },
+    {
+      "id": "mvp-029",
+      "title": "Crear revisión semanal y tendencias de progreso",
+      "module": "analytics",
+      "phase": "4-coach",
+      "priority": 29,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-019",
+        "mvp-021",
+        "mvp-024",
+        "mvp-026"
+      ],
+      "issue": {
+        "created": true,
+        "number": 29,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/29"
+      }
+    },
+    {
+      "id": "mvp-030",
+      "title": "Implementar privacidad, consentimiento, exportación y eliminación",
+      "module": "privacy",
+      "phase": "5-operational",
+      "priority": 30,
+      "status": "pending",
+      "dependsOn": [
+        "mvp-009",
+        "mvp-013",
+        "mvp-015",
+        "mvp-021",
+        "mvp-028"
+      ],
+      "issue": {
+        "created": true,
+        "number": 30,
+        "url": "https://github.com/abejarano/KaelorCoach/issues/30"
+      }
     }
   ]
 }

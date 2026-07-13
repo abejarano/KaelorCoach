@@ -1,18 +1,15 @@
-# Current Progress
+# Estado actual
 
 ## Feature activa
 
 Ninguna.
 
-## Estado
+## Próxima feature obligatoria
 
-Repositorio listo para iniciar `mvp-001` después de incorporar este bootstrap.
+`mvp-001` — Spike mínimo Amazfit Active 2: reloj → app-side → HTTPS.
+
+No iniciar monorepo productivo, API, Flutter, PostgreSQL o IA antes de cerrar las features de descubrimiento `mvp-001` a `mvp-005`.
 
 ## Bloqueos
 
-- El repositorio GitHub estaba vacío al generar el bootstrap.
-- La integración no pudo crear el primer commit por restricción de permisos sobre repositorios vacíos.
-
-## Deuda conocida
-
-Ninguna todavía.
+- Los GitHub issues deben crearse ejecutando `node scripts/create-github-issues.mjs abejarano/KaelorCoach` con permisos de Issues y Contents.

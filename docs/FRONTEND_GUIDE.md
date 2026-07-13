@@ -1,21 +1,19 @@
-# Frontend Guide — Kaelor Coach
+# Guía Frontend — Flutter y Amazfit
 
-## 1. Alcance
+## 1. Principios
 
-Flutter Android-first. La aplicación está especializada en Kaelor Coach y consume únicamente su API.
+- Android-first.
+- Material 3.
+- Tema centralizado; no colores hardcoded en screens.
+- Seed inicial: `#4F46E5` hasta una revisión formal de branding.
+- Claridad sobre decoración.
+- Touch targets adecuados.
+- Accesibilidad básica.
+- No presentar estimaciones como mediciones exactas.
 
-## 2. Principios
+## 2. Flutter
 
-- Mobile-first real.
-- Una pantalla debe tener un propósito principal.
-- No mezclar dashboard, formulario, historial y detalle en una sola pantalla.
-- La página/screen orquesta; widgets encapsulan bloques visuales.
-- La lógica de negocio no vive en widgets.
-- La transformación de datos no se duplica entre screen y widget.
-- No crear componentes genéricos sin uso real.
-- No inventar diseño fuera del design system.
-
-## 3. Estructura recomendada
+Estructura orientativa, solo crear lo necesario:
 
 ```text
 lib/
@@ -23,105 +21,61 @@ lib/
   core/
     api/
     auth/
-    health_connect/
     theme/
   features/
-    onboarding/
     recovery/
     workouts/
+    profile/
     nutrition/
-    body_measurements/
-    coach/
-  shared/
-    widgets/
-    formatting/
 ```
 
-Cada feature puede tener:
+Una feature Flutter puede contener:
 
 ```text
-feature/
-  data/
-  domain/
-  presentation/
+screen/
+widgets/
+data/
+models/
 ```
 
-No crear capas vacías por plantilla.
+No crear todas las carpetas por plantilla.
 
-## 4. Estado
+Screens coordinan navegación y estado. Widgets encapsulan partes visuales. La lógica de plataforma/API vive fuera del widget.
 
-Elegir una única solución de estado al inicializar el proyecto y documentarla.
+Estados obligatorios cuando correspondan:
 
-No mezclar múltiples librerías de estado.
+- loading;
+- empty;
+- error con reintento;
+- success;
+- permiso denegado;
+- datos insuficientes.
 
-Los estados de pantalla deben ser explícitos:
+## 3. Formularios
 
-```text
-initial
-loading
-success
-empty
-error
-permissionRequired
-partialData
-```
+- Campos exactos.
+- No agregar opcionales “por comodidad”.
+- Errores humanos.
+- Submit deshabilitado mientras procesa.
+- No cerrar flujo crítico tocando fuera.
+- Conservar datos ante error.
 
-`partialData` se utiliza solo cuando realmente hay datos incompletos que todavía permiten mostrar valor.
+## 4. Recomendaciones de salud
 
-## 5. Formularios
+Siempre mostrar:
 
-- Campos exactos y alineados con el contrato backend.
-- Validación humana en frontend.
-- Validación de contrato nuevamente en middleware backend.
-- Mensajes concretos.
-- No cerrar diálogos por backdrop durante flujos críticos.
-- Evitar campos opcionales “por si acaso”.
-- No pedir información clínica irrelevante para la feature.
+- decisión;
+- razones principales;
+- datos faltantes;
+- nivel de confianza;
+- advertencia cuando el sistema no tiene información suficiente.
 
-## 6. Pantalla diaria principal
+## 5. App del reloj
 
-Orden recomendado:
-
-1. Estado de recuperación.
-2. Recomendación principal.
-3. Razones que influyeron.
-4. Datos faltantes.
-5. Próxima sesión.
-6. Acciones: iniciar, adaptar, reportar limitación.
-
-No llenar la pantalla con gráficos decorativos.
-
-## 7. Entrenamiento en reloj
-
-La UX del reloj debe minimizar interacción:
-
-- seleccionar tipo;
-- iniciar/pausar/finalizar;
-- confirmar serie;
-- ajustar repeticiones;
-- ajustar carga;
-- ver descanso;
-- registrar RPE al finalizar.
-
-## 8. Alimentación por foto
-
-Flujo obligatorio:
-
-```text
-capturar -> procesando -> resultado estimado -> confirmar/corregir -> guardar
-```
-
-Siempre mostrar rango y confianza, nunca falsa precisión.
-
-## 9. Accesibilidad
-
-- touch targets suficientes;
-- contraste adecuado;
-- no depender solo del color;
-- texto escalable;
-- labels y semántica;
-- estados anunciables.
-
-## 10. Idioma
-
-El MVP debe preparar i18n para español y portugués de Brasil, pero no duplicar implementación antes de que exista el catálogo base.
+- Pantallas muy simples.
+- Texto legible y acciones grandes.
+- Una acción principal por vista.
+- Feedback inmediato de envío/confirmación.
+- No exigir teclado complejo para el primer spike.
+- Persistencia local explícita cuando la feature la implemente.
+- No bloquear el reloj esperando red.
