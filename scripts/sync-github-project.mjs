@@ -71,11 +71,23 @@ const replaceDoD = (body) => {
 };
 
 gh(['auth', 'status']);
-const existingLabels = new Set(JSON.parse(gh(['api', `repos/${repository}/labels?per_page=100`])).map((label) => label.name));
+const existingLabels = JSON.parse(gh(['api', `repos/${repository}/labels?per_page=100`]));
+const existingLabelsByName = new Map(existingLabels.map((label) => [label.name, label]));
+const normalizedColor = (color) => color.replace(/^#/, '').toUpperCase();
 for (const label of labels) {
-  if (!existingLabels.has(label.name)) {
+  const existing = existingLabelsByName.get(label.name);
+  if (!existing) {
     log(`create label ${label.name}`);
     if (apply) request('POST', `repos/${repository}/labels`, label);
+    continue;
+  }
+  if (normalizedColor(existing.color) !== normalizedColor(label.color) || existing.description !== label.description) {
+    log(`update label ${label.name}`);
+    if (apply) request('PATCH', `repos/${repository}/labels/${encodeURIComponent(existing.name)}`, {
+      new_name: label.name,
+      color: label.color,
+      description: label.description,
+    });
   }
 }
 
@@ -104,9 +116,9 @@ for (const issue of issues) {
 }
 
 for (const label of existingLabels) {
-  if (!label.startsWith('phase:') && !label.startsWith('area:')) continue;
-  log(`delete obsolete label ${label}`);
-  if (apply) gh(['api', '-X', 'DELETE', `repos/${repository}/labels/${encodeURIComponent(label)}`]);
+  if (!label.name.startsWith('phase:') && !label.name.startsWith('area:')) continue;
+  log(`delete obsolete label ${label.name}`);
+  if (apply) gh(['api', '-X', 'DELETE', `repos/${repository}/labels/${encodeURIComponent(label.name)}`]);
 }
 
 console.log(apply ? 'OK: GitHub project normalized' : 'Dry run only. Re-run with --apply to write changes.');

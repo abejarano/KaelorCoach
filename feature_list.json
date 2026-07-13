@@ -1,7 +1,7 @@
 {
   "version": 3,
   "generated": true,
-  "generatedAt": "2026-07-13T12:21:05.986Z",
+  "generatedAt": "2026-07-13T15:25:50.241Z",
   "sourceOfTruth": "GitHub Issues: abejarano/KaelorCoach",
   "features": [
     {
@@ -10,6 +10,7 @@
       "status": "pending",
       "priority": "p0",
       "epic": "discovery",
+      "milestone": "M0 Discovery",
       "type": "spike",
       "labels": [
         "epic:discovery",
@@ -31,6 +32,7 @@
       "status": "pending",
       "priority": "p0",
       "epic": "discovery",
+      "milestone": "M0 Discovery",
       "type": "spike",
       "labels": [
         "epic:discovery",
@@ -56,6 +58,7 @@
       "status": "pending",
       "priority": "p0",
       "epic": "discovery",
+      "milestone": "M0 Discovery",
       "type": "spike",
       "labels": [
         "epic:discovery",
@@ -79,6 +82,7 @@
       "status": "pending",
       "priority": "p0",
       "epic": "discovery",
+      "milestone": "M0 Discovery",
       "type": "spike",
       "labels": [
         "epic:discovery",
@@ -104,6 +108,7 @@
       "status": "pending",
       "priority": "p0",
       "epic": "discovery",
+      "milestone": "M0 Discovery",
       "type": "spike",
       "labels": [
         "epic:discovery",
@@ -127,6 +132,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "foundation",
+      "milestone": "M1 Foundation",
       "type": "feature",
       "labels": [
         "epic:foundation",
@@ -148,6 +154,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "foundation",
+      "milestone": "M1 Foundation",
       "type": "feature",
       "labels": [
         "epic:foundation",
@@ -170,6 +177,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "foundation",
+      "milestone": "M1 Foundation",
       "type": "feature",
       "labels": [
         "epic:foundation",
@@ -192,6 +200,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "foundation",
+      "milestone": "M1 Foundation",
       "type": "feature",
       "labels": [
         "epic:foundation",
@@ -217,6 +226,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "foundation",
+      "milestone": "M1 Foundation",
       "type": "feature",
       "labels": [
         "epic:foundation",
@@ -239,6 +249,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "foundation",
+      "milestone": "M1 Foundation",
       "type": "feature",
       "labels": [
         "epic:foundation",
@@ -263,6 +274,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "capture",
+      "milestone": "M2 Capture",
       "type": "feature",
       "labels": [
         "epic:capture",
@@ -291,6 +303,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "capture",
+      "milestone": "M2 Capture",
       "type": "feature",
       "labels": [
         "epic:capture",
@@ -316,6 +329,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "capture",
+      "milestone": "M2 Capture",
       "type": "feature",
       "labels": [
         "epic:capture",
@@ -341,6 +355,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "capture",
+      "milestone": "M2 Capture",
       "type": "feature",
       "labels": [
         "epic:capture",
@@ -368,6 +383,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "capture",
+      "milestone": "M2 Capture",
       "type": "feature",
       "labels": [
         "epic:capture",
@@ -391,6 +407,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "capture",
+      "milestone": "M2 Capture",
       "type": "feature",
       "labels": [
         "epic:capture",
@@ -417,6 +434,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "capture",
+      "milestone": "M2 Capture",
       "type": "feature",
       "labels": [
         "epic:capture",
@@ -443,6 +461,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "capture",
+      "milestone": "M2 Capture",
       "type": "feature",
       "labels": [
         "epic:capture",
@@ -471,6 +490,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "intelligence",
+      "milestone": "M3 Intelligence",
       "type": "feature",
       "labels": [
         "epic:intelligence",
@@ -496,6 +516,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "intelligence",
+      "milestone": "M3 Intelligence",
       "type": "feature",
       "labels": [
         "epic:intelligence",
@@ -524,6 +545,7 @@
       "status": "pending",
       "priority": "p2",
       "epic": "intelligence",
+      "milestone": "M3 Intelligence",
       "type": "feature",
       "labels": [
         "epic:intelligence",
@@ -550,6 +572,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "coach",
+      "milestone": "M4 Coach",
       "type": "feature",
       "labels": [
         "epic:coach",
@@ -576,6 +599,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "coach",
+      "milestone": "M4 Coach",
       "type": "feature",
       "labels": [
         "epic:coach",
@@ -603,6 +627,7 @@
       "status": "pending",
       "priority": "p0",
       "epic": "coach",
+      "milestone": "M4 Coach",
       "type": "feature",
       "labels": [
         "epic:coach",
@@ -629,6 +654,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "coach",
+      "milestone": "M4 Coach",
       "type": "feature",
       "labels": [
         "epic:coach",
@@ -654,6 +680,7 @@
       "status": "pending",
       "priority": "p0",
       "epic": "coach",
+      "milestone": "M4 Coach",
       "type": "feature",
       "labels": [
         "epic:coach",
@@ -683,6 +710,7 @@
       "status": "pending",
       "priority": "p2",
       "epic": "coach",
+      "milestone": "M4 Coach",
       "type": "feature",
       "labels": [
         "epic:coach",
@@ -710,6 +738,7 @@
       "status": "pending",
       "priority": "p2",
       "epic": "coach",
+      "milestone": "M4 Coach",
       "type": "feature",
       "labels": [
         "epic:coach",
@@ -738,6 +767,7 @@
       "status": "pending",
       "priority": "p1",
       "epic": "operations",
+      "milestone": "M5 Operations",
       "type": "feature",
       "labels": [
         "epic:operations",

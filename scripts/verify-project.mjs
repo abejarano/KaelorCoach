@@ -24,7 +24,7 @@ const ids = new Set(featureList.features.map((feature) => feature.id));
 const byId = new Map(featureList.features.map((feature) => [feature.id, feature]));
 let active = 0;
 for (const feature of featureList.features) {
-  for (const field of ['id', 'title', 'status', 'priority', 'epic', 'type', 'labels', 'dependencies', 'issue']) {
+  for (const field of ['id', 'title', 'status', 'priority', 'epic', 'milestone', 'type', 'labels', 'dependencies', 'issue']) {
     if (!(field in feature)) fail(`${feature.id ?? 'unknown'} missing ${field}`);
   }
   if (!Number.isInteger(feature.issue?.number) || !String(feature.issue?.url).startsWith('https://github.com/')) fail(`${feature.id} has invalid issue link`);
