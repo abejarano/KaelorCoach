@@ -28,6 +28,14 @@ for (const feature of featureList.features) {
     if (!(field in feature)) fail(`${feature.id ?? 'unknown'} missing ${field}`);
   }
   if (!Number.isInteger(feature.issue?.number) || !String(feature.issue?.url).startsWith('https://github.com/')) fail(`${feature.id} has invalid issue link`);
+  for (const prefix of ['priority:', 'epic:', 'type:', 'status:']) {
+    if (feature.labels.filter((label) => label.startsWith(prefix)).length !== 1) {
+      fail(`${feature.id} must have exactly one ${prefix} label`);
+    }
+  }
+  if (feature.labels.some((label) => label.startsWith('phase:') || label.startsWith('area:'))) {
+    fail(`${feature.id} still uses a legacy phase/area label`);
+  }
   if (feature.status === 'inprogress') active += 1;
   for (const dependency of feature.dependencies) if (!ids.has(dependency)) fail(`${feature.id} depends on unknown ${dependency}`);
 }

@@ -1,7 +1,7 @@
 {
   "version": 3,
   "generated": true,
-  "generatedAt": "2026-07-13T12:01:45.444Z",
+  "generatedAt": "2026-07-13T12:15:33.943Z",
   "sourceOfTruth": "GitHub Issues: abejarano/KaelorCoach",
   "features": [
     {
@@ -12,9 +12,12 @@
       "epic": "discovery",
       "type": "spike",
       "labels": [
-        "area:watch",
-        "phase:spike",
-        "priority:p0"
+        "epic:discovery",
+        "platform:watch",
+        "priority:p0",
+        "risk:integration",
+        "status:ready",
+        "type:spike"
       ],
       "dependencies": [],
       "issue": {
@@ -30,10 +33,14 @@
       "epic": "discovery",
       "type": "spike",
       "labels": [
-        "area:health-data",
-        "area:watch",
-        "phase:spike",
-        "priority:p0"
+        "epic:discovery",
+        "platform:watch",
+        "priority:p0",
+        "risk:health",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:spike"
       ],
       "dependencies": [
         "mvp-001"
@@ -51,9 +58,12 @@
       "epic": "discovery",
       "type": "spike",
       "labels": [
-        "area:watch",
-        "phase:spike",
-        "priority:p0"
+        "epic:discovery",
+        "platform:watch",
+        "priority:p0",
+        "risk:integration",
+        "status:ready",
+        "type:spike"
       ],
       "dependencies": [
         "mvp-001"
@@ -71,10 +81,14 @@
       "epic": "discovery",
       "type": "spike",
       "labels": [
-        "area:android",
-        "area:health-data",
-        "phase:spike",
-        "priority:p0"
+        "epic:discovery",
+        "platform:mobile",
+        "priority:p0",
+        "risk:health",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:spike"
       ],
       "dependencies": [
         "mvp-001"
@@ -92,9 +106,10 @@
       "epic": "discovery",
       "type": "spike",
       "labels": [
-        "area:architecture",
-        "phase:spike",
-        "priority:p0"
+        "epic:discovery",
+        "priority:p0",
+        "status:ready",
+        "type:spike"
       ],
       "dependencies": [
         "mvp-002",
@@ -114,9 +129,10 @@
       "epic": "foundation",
       "type": "feature",
       "labels": [
-        "area:platform",
-        "phase:foundation",
-        "priority:p1"
+        "epic:foundation",
+        "priority:p1",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-005"
@@ -134,10 +150,11 @@
       "epic": "foundation",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:gcp",
-        "phase:foundation",
-        "priority:p1"
+        "epic:foundation",
+        "platform:api",
+        "priority:p1",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-006"
@@ -155,10 +172,11 @@
       "epic": "foundation",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:database",
-        "phase:foundation",
-        "priority:p1"
+        "epic:foundation",
+        "platform:api",
+        "priority:p1",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-007"
@@ -176,11 +194,13 @@
       "epic": "foundation",
       "type": "feature",
       "labels": [
-        "area:auth",
-        "area:backend",
-        "area:mobile",
-        "phase:foundation",
-        "priority:p1"
+        "epic:foundation",
+        "platform:api",
+        "platform:mobile",
+        "priority:p1",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-007",
@@ -199,10 +219,11 @@
       "epic": "foundation",
       "type": "feature",
       "labels": [
-        "area:mobile",
-        "area:ui",
-        "phase:foundation",
-        "priority:p1"
+        "epic:foundation",
+        "platform:mobile",
+        "priority:p1",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-006"
@@ -220,9 +241,12 @@
       "epic": "foundation",
       "type": "feature",
       "labels": [
-        "area:watch",
-        "phase:foundation",
-        "priority:p1"
+        "epic:foundation",
+        "platform:watch",
+        "priority:p1",
+        "risk:integration",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-005",
@@ -241,10 +265,14 @@
       "epic": "capture",
       "type": "feature",
       "labels": [
-        "area:health-data",
-        "area:mobile",
-        "phase:capture",
-        "priority:p1"
+        "epic:capture",
+        "platform:mobile",
+        "priority:p1",
+        "risk:health",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-004",
@@ -265,10 +293,13 @@
       "epic": "capture",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:health-profile",
-        "phase:capture",
-        "priority:p1"
+        "epic:capture",
+        "platform:api",
+        "priority:p1",
+        "risk:health",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-008",
@@ -287,10 +318,13 @@
       "epic": "capture",
       "type": "feature",
       "labels": [
-        "area:health-profile",
-        "area:mobile",
-        "phase:capture",
-        "priority:p1"
+        "epic:capture",
+        "platform:mobile",
+        "priority:p1",
+        "risk:health",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-010",
@@ -309,10 +343,12 @@
       "epic": "capture",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:mobile",
-        "phase:capture",
-        "priority:p1"
+        "epic:capture",
+        "platform:api",
+        "platform:mobile",
+        "priority:p1",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-008",
@@ -332,10 +368,11 @@
       "epic": "capture",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:workouts",
-        "phase:capture",
-        "priority:p1"
+        "epic:capture",
+        "platform:api",
+        "priority:p1",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-008",
@@ -354,11 +391,13 @@
       "epic": "capture",
       "type": "feature",
       "labels": [
-        "area:mobile",
-        "area:watch",
-        "area:workouts",
-        "phase:capture",
-        "priority:p1"
+        "epic:capture",
+        "platform:mobile",
+        "platform:watch",
+        "priority:p1",
+        "risk:integration",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-011",
@@ -378,11 +417,13 @@
       "epic": "capture",
       "type": "feature",
       "labels": [
-        "area:mobile",
-        "area:watch",
-        "area:workouts",
-        "phase:capture",
-        "priority:p1"
+        "epic:capture",
+        "platform:mobile",
+        "platform:watch",
+        "priority:p1",
+        "risk:integration",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-011",
@@ -402,11 +443,14 @@
       "epic": "capture",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:health-data",
-        "area:workouts",
-        "phase:capture",
-        "priority:p1"
+        "epic:capture",
+        "platform:api",
+        "priority:p1",
+        "risk:health",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-012",
@@ -427,10 +471,13 @@
       "epic": "intelligence",
       "type": "feature",
       "labels": [
-        "area:ai",
-        "area:backend",
-        "phase:ai",
-        "priority:p1"
+        "epic:intelligence",
+        "platform:api",
+        "priority:p1",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-007",
@@ -449,12 +496,15 @@
       "epic": "intelligence",
       "type": "feature",
       "labels": [
-        "area:ai",
-        "area:backend",
-        "area:mobile",
-        "area:nutrition",
-        "phase:ai",
-        "priority:p1"
+        "epic:intelligence",
+        "platform:api",
+        "platform:mobile",
+        "priority:p1",
+        "risk:health",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-010",
@@ -474,10 +524,13 @@
       "epic": "intelligence",
       "type": "feature",
       "labels": [
-        "area:ai",
-        "area:mobile",
-        "phase:ai",
-        "priority:p2"
+        "epic:intelligence",
+        "platform:mobile",
+        "priority:p2",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-015",
@@ -496,11 +549,14 @@
       "epic": "coach",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:health-safety",
-        "area:mobile",
-        "phase:coach",
-        "priority:p1"
+        "epic:coach",
+        "platform:api",
+        "platform:mobile",
+        "priority:p1",
+        "risk:health",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-013",
@@ -519,10 +575,11 @@
       "epic": "coach",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:recovery",
-        "phase:coach",
-        "priority:p1"
+        "epic:coach",
+        "platform:api",
+        "priority:p1",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-012",
@@ -543,10 +600,13 @@
       "epic": "coach",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:health-safety",
-        "phase:coach",
-        "priority:p0"
+        "epic:coach",
+        "platform:api",
+        "priority:p0",
+        "risk:health",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-013",
@@ -566,11 +626,12 @@
       "epic": "coach",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:mobile",
-        "area:planning",
-        "phase:coach",
-        "priority:p1"
+        "epic:coach",
+        "platform:api",
+        "platform:mobile",
+        "priority:p1",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-013",
@@ -590,11 +651,14 @@
       "epic": "coach",
       "type": "feature",
       "labels": [
-        "area:ai",
-        "area:backend",
-        "area:mobile",
-        "phase:coach",
-        "priority:p0"
+        "epic:coach",
+        "platform:api",
+        "platform:mobile",
+        "priority:p0",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-020",
@@ -615,11 +679,14 @@
       "epic": "coach",
       "type": "feature",
       "labels": [
-        "area:ai",
-        "area:backend",
-        "area:mobile",
-        "phase:coach",
-        "priority:p2"
+        "epic:coach",
+        "platform:api",
+        "platform:mobile",
+        "priority:p2",
+        "risk:integration",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-020",
@@ -638,11 +705,12 @@
       "epic": "coach",
       "type": "feature",
       "labels": [
-        "area:analytics",
-        "area:backend",
-        "area:mobile",
-        "phase:coach",
-        "priority:p2"
+        "epic:coach",
+        "platform:api",
+        "platform:mobile",
+        "priority:p2",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-019",
@@ -663,11 +731,13 @@
       "epic": "operations",
       "type": "feature",
       "labels": [
-        "area:backend",
-        "area:mobile",
-        "area:security",
-        "phase:operational",
-        "priority:p1"
+        "epic:operations",
+        "platform:api",
+        "platform:mobile",
+        "priority:p1",
+        "risk:privacy",
+        "status:ready",
+        "type:feature"
       ],
       "dependencies": [
         "mvp-009",

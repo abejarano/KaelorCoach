@@ -10,8 +10,11 @@ permission:
   bash: ask
   task:
     "*": deny
+    planner: allow
     implementer: allow
     reviewer: allow
+    qa: allow
+    product-owner: allow
 color: primary
 ---
 
