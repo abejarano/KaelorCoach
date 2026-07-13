@@ -58,6 +58,8 @@ for (const id of ids) visit(id);
 
 const template = fs.readFileSync(path.join(root, '.github/ISSUE_TEMPLATE/feature.md'), 'utf8');
 for (const heading of requiredIssueHeadings) if (!template.includes(`## ${heading}`)) fail(`issue template missing heading ${heading}`);
+const headings = [...template.matchAll(/^## (.+)$/gm)].map((match) => match[1]);
+if (headings.at(-1) !== 'Definition of Done') fail('issue template must keep Definition of Done as the final section');
 
 for (const skill of fs.readdirSync(path.join(root, '.agents/skills'))) {
   const file = path.join(root, '.agents/skills', skill, 'SKILL.md');

@@ -2,6 +2,8 @@
 
 GitHub Issues es la fuente de verdad ejecutable. Cada issue usa `.github/ISSUE_TEMPLATE/feature.md`; la plantilla y `scripts/sync-github-project.mjs` mantienen la estructura y el Definition of Done compartidos.
 
+`## Definition of Done` es la ultima seccion de nivel 2. Cualquier evidencia, referencia o nota de migracion debe ir antes de ella. Esta convencion permite al sincronizador reemplazar el DoD completo sin conservar criterios obsoletos ni duplicados.
+
 Etiquetas permitidas:
 
 - Una `priority:p0`, `priority:p1` o `priority:p2`.

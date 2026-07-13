@@ -50,6 +50,16 @@ export const legacyEpic = {
   operational: 'operations',
 };
 
+// These features handle sensitive health context not represented by legacy area labels.
+export const featureRiskOverrides = {
+  'mvp-015': ['risk:health', 'risk:privacy'],
+  'mvp-022': ['risk:health', 'risk:privacy'],
+  'mvp-024': ['risk:health', 'risk:privacy'],
+  'mvp-027': ['risk:health', 'risk:privacy'],
+  'mvp-028': ['risk:health', 'risk:privacy'],
+  'mvp-029': ['risk:health', 'risk:privacy'],
+};
+
 export const sharedDefinitionOfDone = `## Definition of Done
 
 - [ ] El alcance y los criterios de aceptacion del issue estan demostrados.

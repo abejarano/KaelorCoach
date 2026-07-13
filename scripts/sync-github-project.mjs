@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   epicToMilestone,
+  featureRiskOverrides,
   labels,
   legacyEpic,
   milestones,
@@ -52,6 +53,7 @@ const normalize = (issue) => {
     'area:nutrition',
     'area:ai',
   ].includes(name))) risk.add('risk:privacy');
+  for (const label of featureRiskOverrides[featureId] ?? []) risk.add(label);
   const priority = names.find((name) => name.startsWith('priority:'));
   if (!priority) throw new Error(`#${issue.number} has no priority label`);
   const status = names.find((name) => name.startsWith('status:')) ?? 'status:ready';
@@ -64,10 +66,7 @@ const normalize = (issue) => {
 };
 
 const replaceDoD = (body) => {
-  const next = body.replace(
-    /^## (Definition of Done|Definici.n de terminado)[ \t]*\n[\s\S]*?(?=\n## |\s*$)/m,
-    sharedDefinitionOfDone,
-  );
+  const next = body.replace(/^## (Definition of Done|Definici.n de terminado)[\s\S]*$/m, sharedDefinitionOfDone);
   return next === body ? `${body.trim()}\n\n${sharedDefinitionOfDone}\n` : `${next.trim()}\n`;
 };
 
@@ -98,7 +97,8 @@ for (const issue of issues) {
   const currentLabels = issue.labels.map((label) => label.name).sort();
   const labelsMatch = currentLabels.join(',') === target.labels.join(',');
   const milestoneMatches = issue.milestone?.title === target.milestone;
-  if (labelsMatch && milestoneMatches && body === issue.body) continue;
+  const bodyMatches = body.trimEnd() === (issue.body ?? '').trimEnd();
+  if (labelsMatch && milestoneMatches && bodyMatches) continue;
   log(`#${issue.number} labels=${target.labels.join(',')} milestone=${target.milestone}`);
   if (apply) request('PATCH', `repos/${repository}/issues/${issue.number}`, { labels: target.labels, milestone, body });
 }

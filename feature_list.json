@@ -1,7 +1,7 @@
 {
   "version": 3,
   "generated": true,
-  "generatedAt": "2026-07-13T12:15:33.943Z",
+  "generatedAt": "2026-07-13T12:21:05.986Z",
   "sourceOfTruth": "GitHub Issues: abejarano/KaelorCoach",
   "features": [
     {
@@ -347,6 +347,8 @@
         "platform:api",
         "platform:mobile",
         "priority:p1",
+        "risk:health",
+        "risk:privacy",
         "status:ready",
         "type:feature"
       ],
@@ -527,6 +529,7 @@
         "epic:intelligence",
         "platform:mobile",
         "priority:p2",
+        "risk:health",
         "risk:integration",
         "risk:privacy",
         "status:ready",
@@ -578,6 +581,8 @@
         "epic:coach",
         "platform:api",
         "priority:p1",
+        "risk:health",
+        "risk:privacy",
         "status:ready",
         "type:feature"
       ],
@@ -655,6 +660,7 @@
         "platform:api",
         "platform:mobile",
         "priority:p0",
+        "risk:health",
         "risk:integration",
         "risk:privacy",
         "status:ready",
@@ -683,6 +689,7 @@
         "platform:api",
         "platform:mobile",
         "priority:p2",
+        "risk:health",
         "risk:integration",
         "risk:privacy",
         "status:ready",
@@ -709,6 +716,8 @@
         "platform:api",
         "platform:mobile",
         "priority:p2",
+        "risk:health",
+        "risk:privacy",
         "status:ready",
         "type:feature"
       ],
