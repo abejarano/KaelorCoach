@@ -4,7 +4,7 @@
 
 Ninguna.
 
-## Próxima feature obligatoria
+## Proxima feature obligatoria
 
 `mvp-001` — Spike mínimo Amazfit Active 2: reloj → app-side → HTTPS.
 
@@ -12,4 +12,4 @@ No iniciar monorepo productivo, API, Flutter, PostgreSQL o IA antes de cerrar la
 
 ## Bloqueos
 
-- Los GitHub issues deben crearse ejecutando `node scripts/create-github-issues.mjs abejarano/KaelorCoach` con permisos de Issues y Contents.
+- GitHub requiere un token valido para aplicar `node scripts/sync-github-project.mjs --apply` y luego regenerar `feature_list.json`.

@@ -13,31 +13,11 @@ permission:
 color: warning
 ---
 
-# Codex Reviewer
+# Reviewer
 
-## Lectura obligatoria
+Lee el issue, `CODEX.md`, plan, informe de implementacion y `code-reviewer`. Aplica `health-safety-reviewer`, `frontend-flutter` o `zepp-watch-integration` cuando corresponda. Solo escribe `progress/review_<id>_<slug>.md`.
 
-- `AGENTS.md`
-- `docs/ARCHITECTURE.md`
-- `docs/PERSISTENCE.md`
-- `docs/conventions.md`
-- `docs/verification.md`
-- `progress/plan_<id>_<slug>.md`
-- `progress/impl_<id>_<slug>.md`
-- `.agents/skills/code-reviewer/SKILL.md`
-- `.agents/skills/health-safety-reviewer/SKILL.md` cuando aplique.
-
-## Reglas
-
-- No edites código de producto.
-- Solo escribe `progress/review_<id>_<slug>.md`.
-- Rechaza cambios fuera del plan.
-- Rechaza fallbacks silenciosos.
-- Rechaza opcionales injustificados.
-- Rechaza validación duplicada.
-- Rechaza exposición de datos sensibles.
-- Rechaza cualquier bypass del Safety Engine.
-- Rechaza UI inconsistente con la guía Flutter.
+No edita codigo de producto. Devuelve `APPROVED` o `CHANGES_REQUESTED` con hallazgos verificables.
 
 Respuesta final permitida:
 

@@ -1,23 +1,12 @@
 ---
 name: frontend-flutter
-description: Reglas de implementación UI/UX Flutter para Kaelor Coach.
+description: Implementa o revisa superficies Flutter de Kaelor Coach con estados, accesibilidad y decisiones de salud comprensibles.
 ---
 
-# Flutter Frontend Skill
+# Flutter Surface
 
-## Antes de implementar
+Leer `docs/FRONTEND_GUIDE.md` y la estructura real antes de crear widgets. Usar tema y navegacion existentes; screens coordinan y widgets encapsulan bloques.
 
-Leer `docs/FRONTEND_GUIDE.md` y detectar theme, navegación, componentes y solución de estado reales.
+Cada flujo tiene estados relevantes: carga, vacio, error recuperable, exito, permiso denegado y datos insuficientes cuando apliquen. Formularios conservan entrada ante error y los flujos criticos no se cierran por backdrop.
 
-## Reglas
-
-- No inventar paleta ni tipografía.
-- Screens orquestan; widgets encapsulan bloques.
-- No mezclar fetch, validación, transformación y UI extensa en un archivo.
-- Cubrir loading, empty, error y success.
-- Usar `partialData` solo cuando exista un caso real.
-- Formularios exactos, sin campos opcionales inventados.
-- Flujos críticos no se cierran por backdrop.
-- Accesibilidad y touch targets obligatorios.
-- No mostrar estimaciones de comida como exactas.
-- La recomendación diaria debe explicar razones y datos faltantes.
+Para recomendaciones, mostrar decision, razones, datos faltantes y confianza. Nunca presentar una estimacion visual como medicion exacta.

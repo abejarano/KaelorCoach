@@ -8,17 +8,18 @@ No inventar comandos. Leer archivos de configuración reales antes de ejecutar.
 
 ```bash
 ./init.sh
+node scripts/sync-features.mjs --check
 ```
 
-Valida estructura documental y metadata de issues. No garantiza código runtime.
+Valida estructura documental y que `feature_list.json` coincida con los issues remotos, incluidos labels, estado, milestone, dependencias y URLs. No garantiza código runtime.
 
-## Issues
+## Project governance
 
 ```bash
-node scripts/check-feature-issues.mjs
+node scripts/verify-project.mjs
 ```
 
-Comprueba que cada feature tenga `issue.number` y `issue.url` cuando `issue.created=true`.
+Comprueba el artefacto generado de GitHub, dependencias, plantilla de issues, skills y cadena del harness. Para refrescar issues, usar `node scripts/sync-features.mjs`; para comprobar drift sin escribir, usar `node scripts/sync-features.mjs --check`.
 
 ## Antes de review
 

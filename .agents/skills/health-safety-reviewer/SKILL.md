@@ -1,29 +1,12 @@
 ---
 name: health-safety-reviewer
-description: Revisa features que interpretan salud, recuperación, nutrición, entrenamiento, medicamentos o laboratorios.
+description: Revisa cambios que usan datos de salud, recuperacion, nutricion, entrenamiento, medicamentos o laboratorios.
 ---
 
-# Health Safety Reviewer
+# Health Safety Review
 
-## Rechazar si
+Aplicar cuando una feature interpreta o transmite datos fisiologicos o clinicos.
 
-- La IA diagnostica enfermedades.
-- Se inventan datos faltantes.
-- Se usa un valor fisiológico por defecto.
-- El modelo puede saltar un bloqueo del Safety Engine.
-- Se interpreta frecuencia cardiaca sin considerar medicamentos registrados cuando corresponde.
-- Se presenta una estimación visual como medición exacta.
-- Se modifica un resultado de laboratorio original.
-- No se conserva fuente, fecha, unidad o confianza.
-- Se registran datos clínicos completos en logs.
-- La recomendación no indica limitaciones o nivel de confianza.
+Verificar procedencia, fecha, unidad, confianza, consentimiento, ownership, minimizacion de contexto IA y auditoria. La IA no diagnostica, no modifica resultados originales y no puede elevar una decision de Safety Engine.
 
-## Verificar
-
-- trazabilidad;
-- procedencia;
-- consentimiento;
-- ownership;
-- minimización de contexto enviado al proveedor IA;
-- structured output;
-- auditoría de la decisión.
+Rechazar valores fisiologicos inventados, ausencia tratada como cero, estimaciones presentadas como exactas, datos clinicos en logs y decisiones sin limitaciones o confianza visibles.

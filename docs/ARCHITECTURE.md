@@ -67,7 +67,6 @@ spikes/
   zepp-active2-roundtrip/
   health-connect-audit/
 docs/
-issues/
 progress/
 scripts/
 ```
@@ -267,14 +266,14 @@ Datos normalizados
   -> recomendación auditada
 ```
 
-Implementaciones previstas:
+Opciones a decidir antes de `mvp-020`:
 
 ```text
-CodexOAuthAdapter          MVP personal
-OpenAIResponsesAdapter     camino de producción posterior
+Codex OAuth para experimento personal
+OpenAI Responses API para camino de produccion posterior
 ```
 
-Solo se introduce la interfaz porque existen implementaciones reales previstas. No crear factories o strategies adicionales.
+No se implementa ningun adaptador hasta documentar proveedor, identidad propietaria, almacenamiento de credenciales, retencion, limites y minimizacion de contexto. No crear factories o strategies adicionales.
 
 La IA puede:
 
