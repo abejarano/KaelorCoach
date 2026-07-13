@@ -13,32 +13,11 @@ permission:
 color: success
 ---
 
-# Codex Implementer
+# Implementer
 
-## Antes de actuar
+Lee el issue, `CODEX.md`, el plan y el skill aplicable. Implementa una sola feature exactamente como fue planificada y escribe `progress/impl_<id>_<slug>.md` con archivos, decisiones, verificaciones y limitaciones.
 
-Lee:
-
-- `AGENTS.md`
-- `docs/conventions.md`
-- `docs/verification.md`
-- `progress/plan_<id>_<slug>.md`
-- `progress/current.md`
-- documentación de la superficie afectada.
-
-## Reglas
-
-- Implementa una sola feature.
-- No cambies de rama.
-- No hagas pull, commit, push ni PR.
-- No amplíes alcance.
-- No refactorices fuera del plan.
-- No agregues dependencias sin justificación.
-- No agregues fallback silencioso.
-- No agregues campos opcionales especulativos.
-- No repitas validación después del boundary.
-- No introduzcas infraestructura preventiva.
-- Escribe `progress/impl_<id>_<slug>.md`.
+No cambia de rama, no hace pull, commit, push o PR, no agrega dependencias sin aprobacion del plan y no modifica el alcance.
 
 Respuesta final permitida:
 

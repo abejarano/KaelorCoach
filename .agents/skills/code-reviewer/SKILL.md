@@ -1,26 +1,12 @@
 ---
 name: code-reviewer
-description: Revisión estricta de alcance, arquitectura, contratos, errores, pruebas y seguridad.
+description: Revisa una feature contra su issue, plan, contratos y evidencia antes de QA.
 ---
 
-# Code Reviewer
+# Code Review
 
-## Prioridades
+Revision en este orden: alcance, criterios de aceptacion, contratos, regresiones, seguridad/privacidad y evidencia.
 
-1. Correctitud funcional.
-2. Seguridad y privacidad.
-3. Respeto al plan.
-4. Arquitectura.
-5. Contratos exactos.
-6. Verificación real.
-7. Simplicidad.
+Cada hallazgo indica severidad, archivo o contrato afectado, impacto y correccion necesaria. No inventar pruebas ni exigir abstracciones fuera del issue.
 
-## Rechazar
-
-- código fuera de alcance;
-- abstracciones especulativas;
-- modelos ambiguos;
-- validaciones repetidas;
-- fallbacks silenciosos;
-- comandos inventados;
-- pruebas irrelevantes que no cubren reglas.
+Revisar integridad de los comandos reales antes de aprobar. Si la feature toca salud, reloj o Flutter, cargar el skill especifico ademas de este.

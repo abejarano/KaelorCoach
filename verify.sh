@@ -4,4 +4,4 @@ set -euo pipefail
 ./init.sh
 
 echo "No runtime applications exist yet. Runtime verification is intentionally skipped."
-echo "OK: documentation and harness verified"
+echo "OK: project governance and harness verified"

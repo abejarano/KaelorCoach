@@ -12,13 +12,13 @@ No inventar comandos. Leer archivos de configuración reales antes de ejecutar.
 
 Valida estructura documental y metadata de issues. No garantiza código runtime.
 
-## Issues
+## Project governance
 
 ```bash
-node scripts/check-feature-issues.mjs
+node scripts/verify-project.mjs
 ```
 
-Comprueba que cada feature tenga `issue.number` y `issue.url` cuando `issue.created=true`.
+Comprueba el artefacto generado de GitHub, dependencias, plantilla de issues, skills y cadena del harness. Para refrescar issues, usar `node scripts/sync-features.mjs`.
 
 ## Antes de review
 
