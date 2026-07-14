@@ -1,0 +1,17 @@
+{
+  "name": "zepp-active2-roundtrip",
+  "version": "1.0.0",
+  "description": "Minimal Zepp watch to app-side HTTPS roundtrip spike.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zeppos/zml": "^0.0.38"
+  },
+  "devDependencies": {
+    "@zeppos/device-types": "^3.0.0"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "configVersion": "v3",
+  "app": {
+    "appId": 24635,
+    "appName": "Kaelor Roundtrip Spike",
+    "appType": "app",
+    "version": {
+      "code": 9,
+      "name": "1.0.8"
+    },
+    "icon": "icon.png",
+    "vender": "Kaelor Coach",
+    "description": "Non-clinical watch to app-side HTTPS roundtrip spike"
+  },
+  "permissions": [],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "4.0",
+      "target": "4.0",
+      "minVersion": "4.0"
+    }
+  },
+  "targets": {
+    "default": {
+      "module": {
+        "page": {
+          "pages": [
+            "page/index"
+          ]
+        },
+        "app-side": {
+          "path": "app-side/index"
+        },
+        "setting": {
+          "path": "setting/index"
+        }
+      },
+      "platforms": [
+        {
+          "st": "s",
+          "dw": 390
+        }
+      ]
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "Kaelor Roundtrip Spike"
+    }
+  },
+  "defaultLanguage": "en-US"
+}
