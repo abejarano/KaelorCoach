@@ -25,4 +25,6 @@
 
 ## Verificación pendiente
 
-Antes de aprobar QA hay que construir el commit final, instalar ese `.zab` exacto y repetir: éxito 2xx/`ACEPTADO`, endpoint HTTPS inválido con rechazo inmediato y dos pulsaciones con `eventId` distintos. También debe completar `node scripts/sync-features.mjs --check` contra GitHub.
+La comprobación sintáctica y `zeus build` produjeron `dist/24635-Kaelor_Roundtrip_Spike-1.0.8-20260714150411.zab` desde esta implementación. `./init.sh` y `node scripts/sync-features.mjs --check` también completaron correctamente.
+
+Antes de aprobar QA falta instalar ese `.zab` y repetir: éxito 2xx/`ACEPTADO`, endpoint HTTPS inválido con rechazo inmediato y dos pulsaciones con `eventId` distintos.

@@ -2,7 +2,9 @@
 
 ## Veredicto
 
-**CHANGES_REQUESTED — evidencia pendiente.** El código actual resuelve los hallazgos de configuración versionada, payloads en logs, validación y rechazos sin respuesta. Aún no existe evidencia física ni un check remoto completado para este head exacto.
+**CHANGES_REQUESTED — evidencia física pendiente.** El código actual resuelve los hallazgos de configuración versionada, payloads en logs, validación y rechazos sin respuesta. Aún no existe evidencia física para esta implementación.
+
+La verificación local sí completó: `./init.sh`, `node scripts/sync-features.mjs --check`, comprobación sintáctica y `zeus build` generaron el paquete `1.0.8`/código `9`. Esto no sustituye instalarlo en el reloj.
 
 ## Correcciones inspeccionadas
 
@@ -14,6 +16,5 @@
 
 ## Corrección requerida antes de aprobar
 
-1. Ejecutar `node scripts/sync-features.mjs --check` correctamente contra GitHub.
-2. Construir desde el SHA final, instalar ese `.zab` y registrar éxito, endpoint HTTPS inválido y dos envíos consecutivos con IDs distintos.
-3. Actualizar QA a PASS solo con esa evidencia y entonces revisar el artefacto final.
+1. Instalar el `.zab` `1.0.8` construido desde esta implementación y registrar éxito, endpoint HTTPS inválido y dos envíos consecutivos con IDs distintos.
+2. Actualizar QA a PASS solo con esa evidencia y entonces revisar el artefacto final.

@@ -8,11 +8,11 @@
 
 | Verificación | Estado |
 | --- | --- |
-| `./init.sh` | Pendiente de repetir sobre el commit final. |
-| `node scripts/sync-features.mjs --check` | Pendiente; debe completar contra GitHub sin drift. |
-| `zeus build` | Pendiente sobre el commit final. |
-| `node --check app-side/index.js` y `node --check page/index.js` | Pendiente sobre el commit final. |
-| Revisión de configuración y logs | El código requiere `receiver-config.local.js` ignorado y mantiene `DEBUG = false`; pendiente de build/QA final. |
+| `./init.sh` | PASS — `30 generated features` y harness válidos. |
+| `node scripts/sync-features.mjs --check` | PASS — `30 features match GitHub Issues`. |
+| `node --check app-side/index.js` y `node --check page/index.js` | PASS. |
+| `zeus build` | PASS — generó `dist/24635-Kaelor_Roundtrip_Spike-1.0.8-20260714150411.zab`. |
+| Revisión de configuración y logs | PASS — `receiver-config.local.js` está ignorado, el ejemplo versionado está vacío y ambos transportes tienen `DEBUG = false`. |
 
 ## Recorrido físico obligatorio
 
